@@ -7,7 +7,7 @@ public interface Services {
     Responsee putEndPoint(String endPoint, Object mensagem);
     Responsee deleteEndpoint(String endPoint);
     Responsee postEndpointWithAuthorization(String endPoint, String token, Object mensagem);
-    Responsee deleteEndpointWithAuthorization(String endPoint, String token, Object mensagem);
+    Responsee deleteEndpointWithAuthorization(String endPoint, String token);
     Responsee putEndpointWithAuthorization(String endPoint, String token, Object mensagem);
 
 }

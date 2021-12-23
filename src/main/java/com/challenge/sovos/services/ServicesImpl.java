@@ -41,10 +41,10 @@ public class ServicesImpl implements Services {
 
 
 	@Override
-	public Responsee deleteEndpointWithAuthorization(String endPoint, String token, Object mensagem) {
+	public Responsee deleteEndpointWithAuthorization(String endPoint, String token) {
 		responsee = given().header("Authorization","Bearer "+token)
 				  .contentType("application/json")
-				  .body(mensagem).when().log()
+				  .when().log()
 				.  all().delete(endPoint);
 		return new Responsee(responsee);
 	}
