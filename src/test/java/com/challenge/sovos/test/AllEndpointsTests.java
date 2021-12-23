@@ -27,6 +27,7 @@ public class AllEndpointsTests {
 	  createUser.setStatus("active");
 	  String json = gson.toJson(createUser);
 	  services.postEndpointWithAuthorization("https://gorest.co.in/public/v1/users", "10c829b3539a4ef003272052a838a06ed496bbbf6fc1ed529a7b82e3de56a553", json);
+	  assertion.getResponsee().statusCode(201);
 	}
 
 }

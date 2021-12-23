@@ -15,7 +15,7 @@ public class Responsee {
 		
 	}
 
-	public ValidatableResponse getResposta() {
+	public ValidatableResponse getResponsee() {
 		return responsee.then().log().all();
 	}
 
