@@ -40,7 +40,6 @@ public class ServicesImpl implements Services {
 	}
 
 
-	@Override
 	public Responsee deleteEndpointWithAuthorization(String endPoint, String token) {
 		responsee = given().header("Authorization","Bearer "+token)
 				  .contentType("application/json")
@@ -50,7 +49,6 @@ public class ServicesImpl implements Services {
 	}
 
 
-	@Override
 	public Responsee putEndpointWithAuthorization(String endPoint, String token, Object mensagem) {
 		responsee = given().header("Authorization","Bearer "+token)
 				  .contentType("application/json")

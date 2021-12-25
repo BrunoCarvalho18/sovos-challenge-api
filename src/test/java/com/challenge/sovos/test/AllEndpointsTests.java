@@ -37,24 +37,41 @@ public class AllEndpointsTests {
 
 	@Test
 	public void SearchUser() {
-		String id = "1901";
-		services.getEndPoint("/users" + "/" + id);
-		assertion.getResponsee().statusCode(200);
-		Assert.assertEquals(assertion.saveObjectsBody("data.name"), "Juan");
-	}
-
-	@Test
-	public void UpdateUser() {
-		String id = "2622";
 		String name = faker.name().firstName();
+		//Create User 1
 		createUser.setName(name);
 		createUser.setGender("male");
 		createUser.setEmail(faker.internet().emailAddress());
 		createUser.setStatus("active");
 		String json = gson.toJson(createUser);
-        services.putEndpointWithAuthorization("users" + "/" + id, "10c829b3539a4ef003272052a838a06ed496bbbf6fc1ed529a7b82e3de56a553", json);
+		services.postEndpointWithAuthorization("/users","10c829b3539a4ef003272052a838a06ed496bbbf6fc1ed529a7b82e3de56a553", json);
+		String id = assertion.saveObjectsBody("data.id");
+		services.getEndPoint("/users" + "/" + id);
+		assertion.getResponsee().statusCode(200);
+		Assert.assertEquals(assertion.saveObjectsBody("data.name"), name);
+	}
+
+	@Test
+	public void UpdateUser() {
+		String name = faker.name().firstName();
+		//Create User 1
+		createUser.setName(name);
+		createUser.setGender("male");
+		createUser.setEmail(faker.internet().emailAddress());
+		createUser.setStatus("active");
+		String json = gson.toJson(createUser);
+		services.postEndpointWithAuthorization("/users","10c829b3539a4ef003272052a838a06ed496bbbf6fc1ed529a7b82e3de56a553", json);
+		String id = assertion.saveObjectsBody("data.id");
+		//Update User 2
+		String name2 = faker.name().firstName();
+		createUser.setName(name2);
+		createUser.setGender("male");
+		createUser.setEmail(faker.internet().emailAddress());
+		createUser.setStatus("active");
+		String json2 = gson.toJson(createUser);
+        services.putEndpointWithAuthorization("users" + "/" + id, "10c829b3539a4ef003272052a838a06ed496bbbf6fc1ed529a7b82e3de56a553", json2);
         assertion.getResponsee().statusCode(200);
-        Assert.assertEquals(assertion.saveObjectsBody("data.name"), name);
+        Assert.assertEquals(assertion.saveObjectsBody("data.name"), name2);
 	}
 
 	@Test
