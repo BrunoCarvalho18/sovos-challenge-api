@@ -20,4 +20,4 @@
 - Follow the path: src/test/java/com/challenge/sovos/test/AllEndpointsTests.java
 - Click Run As 
 
-:brazil: :brazil: :brazil:
+<center> :brazil: :brazil: :brazil: </center>
