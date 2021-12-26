@@ -8,6 +8,7 @@
 - Java 11
 - Rest Assured
 - Gson
+- Maven
 
 ## :octocat: **Patterns**
 
